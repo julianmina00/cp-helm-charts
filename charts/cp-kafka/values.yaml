@@ -71,24 +71,24 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  # storageClass: ""
+  storageClass: "multik8s-nfs-storage"
 
   disksPerBroker: 1
 
 ## Kafka JVM Heap Option
 heapOptions: "-Xms512M -Xmx512M"
 
-resources: {}
+resources: {} 
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
+  #limits:
   #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
+  #  memory: 2Gi
+  #requests:
   #  cpu: 100m
-  #  memory: 128Mi
+  #  memory: 2Gi
 
 ## Custom pod annotations
 podAnnotations: {}
@@ -134,12 +134,12 @@ nodeport:
 cp-zookeeper:
   ## If true, install the cp-zookeeper chart alongside cp-kafka
   ## ref: ../cp-zookeeper
-  enabled: true
-  servers: 3
-  persistence:
-    enabled: true
-    dataDirSize: 5Gi
-    dataLogDirSize: 5Gi
+  enabled: false 
+  #servers: 3
+  #persistence:
+  #  enabled: true
+  #  dataDirSize: 1Gi
+  #  dataLogDirSize: 1Gi
 
   ## If the Zookeeper Chart is disabled a URL and port are required to connect
-  url: ""
+  url: "zookeeper-cp-zookeeper-headless"
