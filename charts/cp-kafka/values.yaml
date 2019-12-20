@@ -142,4 +142,4 @@ cp-zookeeper:
   #  dataLogDirSize: 1Gi
 
   ## If the Zookeeper Chart is disabled a URL and port are required to connect
-  url: "zookeeper-cp-zookeeper-headless"
+  url: "zookeeper-cp-zookeeper-headless:2181"
